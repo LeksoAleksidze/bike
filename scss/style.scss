@@ -1,0 +1,466 @@
+
+@import './variables/variables.scss';
+@import './modules/modules.scss';
+@import './modules/media.scss';
+
+
+body{
+    @extend %nopaddmarg;
+    overflow-x: hidden;
+    font-family: 'Rajdhani', sans-serif!important;
+
+    // Header-Section
+    header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 999;
+        margin: 30px auto;
+        padding-left: 75px;
+        .logo {
+            a {
+                text-decoration: none;
+                font-size: 45px;
+                font-weight: 800;
+                color: #fff;   
+                display: block;
+                padding-top: 10px;
+                @extend %nopaddmarg;
+                span {
+                    color: $color01;
+                }
+            }
+        }
+
+        .header-nav {
+            ul li {
+                margin-right: 55px;
+                list-style: none;
+                &:nth-child(6) {
+                    margin: auto 40px auto auto;
+                }
+                &:last-child {
+                    margin-right: 100px;
+                    cursor: pointer;
+                }
+                a {
+                    position: relative;
+                    display: block;
+                    font-size: 27px;
+                    font-weight: 500;
+                    color: $color02;
+                    text-decoration: none;
+                    transition: all .3s ease-in-out;
+                    &:hover {
+                        color: $color01;
+                        &::after {
+                            width: 100%;
+                            left: 0;
+                        }
+                    }
+                    &::after{
+                        content: '';
+                        position: absolute;
+                        right: 0;
+                        bottom: 0;
+                        width: 0;
+                        height: 4px;
+                        background-color: $color01;
+                        transition: all .3s linear;
+                    }
+                    &.active {
+                        color: $color01;
+                        &::after {
+                            width: 100%;
+                        }
+                    }
+                }
+                button {
+                    background-color: $color01;
+                    @extend %nooutbord;
+                    height: 56px;
+                    width: 138px;
+                    color: $color02;
+                    font-size: 27px;
+                    font-weight: 700;
+                    transition: all .4s  ease;
+                    &:hover {
+                        background-color: $color02;
+                        color: $color01;
+                    }
+                }
+            }
+        }
+    }
+
+    // Home-Section
+    #home {
+        min-width: 100%;
+        height: 100vh;
+           .swiper-container {
+            @extend %full;
+            width: 100%;
+            height: 100vh;
+            .swiper-wrapper {
+                .swiper-slide {
+                    text-align: center;
+                    font-size: 18px;
+                    background: #fff;
+                
+                    /* Center slide text vertically */
+                    display: -webkit-box;
+                    display: -ms-flexbox;
+                    display: -webkit-flex;
+                    display: flex;
+                    -webkit-box-pack: center;
+                    -ms-flex-pack: center;
+                    -webkit-justify-content: center;
+                    justify-content: center;
+                    -webkit-box-align: center;
+                    -ms-flex-align: center;
+                    -webkit-align-items: center;
+                    align-items: center;
+                    img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                  }
+            }
+            .swiper-pagination-bullet {
+                width: 23px;
+                height: 23px;
+                border-radius: 0%;
+                transform: rotate(45deg);
+                margin-right: 11px;
+                &:last-child {
+                   margin-right: 0px;
+                }
+            }
+            .swiper-pagination-bullet-active {
+                background-color: $color01;
+            }
+            .swiper-button-prev,
+            .swiper-button-next {
+                width: 218px;
+                height: 218px;
+                background-color: $color01;
+                transform: rotate(45deg);
+                position: absolute;
+                transition: all .4s ease;
+                &:hover {
+                    background-color: $color02;
+                    &::after {
+                        color: $color01;
+                    }
+                }
+            }
+            .swiper-button-prev {
+                left: -110px;
+                &::after {
+                    font-family: 'FontAwesome';
+                    content: '\f104';
+                    position: absolute;
+                    right: 25%;
+                    top: 31%;
+                    color: $color02;
+                    font-size: 120px;
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+            }
+            .swiper-button-next {
+                right: -110px;
+                &::after {
+                    font-family: 'FontAwesome';
+                    content: '\f105';
+                    position: absolute;
+                    left: 20%;
+                    top: 65%;
+                    color: $color02;
+                    font-size: 120px;
+                    transform: translateY(-50%) rotate(-45deg);
+                }
+                
+            }
+        }
+        .hero-inner {
+            z-index: 9999;
+            position: absolute;
+            left: 18%;
+            top: 52%;
+            transform: translateY(-50%); 
+            h1 {
+                font-size: 100px;
+                color: $color01;
+                font-weight: 800;
+            }   
+            h5 {
+                font-size: 50px;
+                color: $color02;
+            }
+            p {
+                font-size: 20px;
+                color: $color02;
+                max-width: 577px;
+                margin-top: 30px;
+            }
+            .hero-btns {
+                button {
+                    width: 304px;
+                    height: 75px;
+                    background-color: $color01;
+                    @extend %nooutbord;
+                    margin-right: 30px;
+                    font-size: 30px;
+                    color: $color02;
+                    font-weight: 700;
+                    margin-top: 40px;
+                    transition: all .4s ease-in-out;
+                    &:hover {
+                        border: 4px solid $color02;
+                        background-color: transparent;
+                    }
+                    &:last-child {
+                        margin-right: 0;
+                        background-color: transparent;
+                        border: 4px solid $color02;
+                        &:hover {
+                            background-color: $color01;
+                            border: 4px solid $color01;
+                        }
+                    }
+                }
+            }
+        }
+    }   
+    // Shop-Section
+    #shop {
+        padding: 40px 120px;
+        .shop-inner {
+            position: relative;
+            box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: .08),
+                       -2px -2px 5px rgba($color: #000000, $alpha: .08);
+            .sale {
+                position: absolute;
+                right: 10px;
+                top: 10px;
+                font-size: 24px;
+                font-weight: 700;
+                width: 88px;
+                height: 88px;
+                background-color: $color01;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 88px;
+                color: $color02;
+            }
+            .shop-image {
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+            .shop-info {
+                padding: 15px;
+                h1{
+                    font-size: 25px;
+                    font-weight: 500;
+                }
+                .shop-stars {
+                    .fa {
+                        font-size: 17px;
+                        color: $color01;
+                    }
+                    span {
+                        color: $color01;
+                        font-size: 20px;;
+                    }
+                }
+                p {
+                    font-size: 16px;
+                    font-weight: 400;
+                }
+                .price {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-top: 35px;
+                    span {
+                        font-size: 30px;
+                        font-weight: 700;
+                        color: $color01;
+                    }
+                    button {
+                        width: 153px;
+                        height: 48px;
+                        @extend %nooutbord;
+                        background-color: $color01;
+                        color: $color02;
+                        font-size: 25px;
+                        font-weight: 700;
+                        transition: all .4s ease-in-out;
+                        &:hover {
+                            background-color: $color02;
+                            border: 2px solid $color01;
+                            color: $color01;
+                        }
+                    }
+                }
+            }
+        }
+        .second-section {
+            margin-top: 25px;
+            .inner {
+                display: flex;
+                flex-direction: row;
+                position: relative;
+                box-shadow: 2px 2px 5px rgba($color: #000000, $alpha: .08),
+                       -2px -2px 5px rgba($color: #000000, $alpha: .08);
+                       margin-bottom: 25px;
+               .sale {
+                        position: absolute;
+                        right: 10px;
+                        top: 10px;
+                        font-size: 24px;
+                        font-weight: 700;
+                        width: 88px;
+                        height: 88px;
+                        background-color: $color01;
+                        border-radius: 50%;
+                        text-align: center;
+                        line-height: 88px;
+                        color: $color02;
+                    }
+                .bike-image {
+                    img {
+                        width: 100%;
+                        height: auto;
+                        object-fit: cover;
+                    }
+                }
+                .shop-info {
+                    padding: 15px;
+                    h1{
+                        font-size: 25px;
+                        font-weight: 500;
+                    }
+                    .shop-stars {
+                        .fa {
+                            font-size: 17px;
+                            color: $color01;
+                        }
+                        span {
+                            color: $color01;
+                            font-size: 20px;;
+                        }
+                    }
+                    p {
+                        font-size: 16px;
+                        font-weight: 400;
+                    }
+                    .price {
+                        position: absolute;
+                            bottom: 10px;
+                            right: 10px;
+                        span {
+                            font-size: 30px;
+                            font-weight: 700;
+                            color: $color01;
+                            margin-right: 20px;
+                        }
+                        button {
+                            width: 153px;
+                            height: 48px;
+                            @extend %nooutbord;
+                            background-color: $color01;
+                            color: $color02;
+                            font-size: 25px;
+                            font-weight: 700;
+                            transition: all .4s ease-in-out;
+                            &:hover {
+                                background-color: $color02;
+                                border: 2px solid $color01;
+                                color: $color01;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    // Countdown-Section
+    #countdown {
+        background-image: url(../images/counter-image.png);
+        min-width: 100%;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding: 120px;
+        .inner {
+            h1 {
+                font-size: 100px;
+                color: $color02;
+                font-weight: 700;
+                span {
+                    color: $color01;
+                }
+            }
+            p {
+                font-size: 30px;
+                font-weight: 600;
+                color: $color02;
+            }
+            .rw {
+                button {
+                    width: 304px;
+                    height: 75px;
+                    background-color: $color01;
+                    color: $color02;
+                    font-size: 30px;
+                    font-weight: 700;
+                    @extend %nooutbord;
+                    transition: all .4s ease-in-out;
+                    &:hover {
+                        background-color: $color02;
+                        border: 2px solid $color01;
+                        color: $color01;
+                    }
+                }
+                p {
+                    margin-left: 25px;
+                    font-size: 25px;
+                    font-weight: 600;
+                    @extend %nopaddmarg;
+                }
+            }
+        }
+            .timer {
+                display: flex;
+                flex-direction: row;
+                justify-content: flex-end;
+                flex-wrap: nowrap;
+                .timer-box {
+                    margin-right: 65px;
+                    text-align: center;
+                    &:last-child {
+                        width: 120px;
+                    }
+                    span {
+                        font-size: 100px;
+                        font-weight: 700;
+                        color: $color02;
+                    }
+                    p {
+                        @extend %nopaddmarg;
+                        font-size: 30px;
+                        font-weight: 700;
+                        color: $color02;
+                    }
+                }
+            }
+    }
+}
+   
+
